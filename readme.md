@@ -8,6 +8,7 @@ Requirements:
 100% Code coverage
 
 ## Two main changes:
+
 **1. Moved the receipt generation to a receipt builder (using the builder pattern)**
 **2. Created a rules engine for managing and processing discounts.**
 

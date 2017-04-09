@@ -23,7 +23,7 @@ namespace BikeDistributor.Test
             var rules = LoadJsonFile<List<Discount<Line>>>("testRules.json");
             _discountRulesEngine = new DiscountRulesEngine<Line>(rules);
         }
-
+         
         [TestMethod]
         public void ReceiptOneDefy()
         {

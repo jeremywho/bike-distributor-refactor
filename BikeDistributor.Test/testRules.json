@@ -1,0 +1,71 @@
+﻿[
+  {
+    "Rules": [
+      {
+        "PropertyName": "Quantity",
+        "Operation": "GreaterThanOrEqual",
+        "TargetValue": "20"
+      },
+      {
+        "PropertyName": "Bike.Price",
+        "Operation": "Equal",
+        "TargetValue": "1000"
+      }
+    ],
+    "Amount": 0.9,
+    "Code": "SAVE1000"
+  },
+  {
+    "Rules": [
+      {
+        "PropertyName": "Quantity",
+        "Operation": "GreaterThanOrEqual",
+        "TargetValue": "10"
+      },
+      {
+        "PropertyName": "Bike.Price",
+        "Operation": "Equal",
+        "TargetValue": "2000"
+      }
+    ],
+    "Amount": 0.8,
+    "Code": "SAVE2000"
+  },
+  {
+    "Rules": [
+      {
+        "PropertyName": "Quantity",
+        "Operation": "GreaterThanOrEqual",
+        "TargetValue": "5"
+      },
+      {
+        "PropertyName": "Bike.Price",
+        "Operation": "Equal",
+        "TargetValue": "5000"
+      }
+    ],
+    "Amount": 0.8,
+    "Code": "SAVE5000"
+  },
+  {
+    "Rules": [
+      {
+        "PropertyName": "Bike.Brand",
+        "Operation": "Equal",
+        "TargetValue": "Specialized"
+      },
+      {
+        "PropertyName": "Bike.Model",
+        "Operation": "Equal",
+        "TargetValue": "S-Works Venge Dura-Ace"
+      },
+      {
+        "PropertyName": "Bike.Year",
+        "Operation": "Equal",
+        "TargetValue": "2016"
+      }
+    ],
+    "Amount": 0.5,
+    "Code": "SAVE2016"
+  }
+]

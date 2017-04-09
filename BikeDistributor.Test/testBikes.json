@@ -1,0 +1,26 @@
+﻿{
+  "Defy": {
+    "Brand": "Giant",
+    "Model": "Defy 1",
+    "Year": 2017,
+    "Price": 1000
+  },
+  "Elite": {
+    "Brand": "Specialized",
+    "Model": "Venge Elite",
+    "Year": 2017,
+    "Price": 2000
+  },
+  "DuraAce": {
+    "Brand": "Specialized",
+    "Model": "S-Works Venge Dura-Ace",
+    "Year": 2017,
+    "Price": 5000
+  },
+  "LastYearDuraAce": {
+    "Brand": "Specialized",
+    "Model": "S-Works Venge Dura-Ace",
+    "Year": 2016,
+    "Price": 5000
+  }
+}

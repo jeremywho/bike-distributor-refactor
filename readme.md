@@ -1,20 +1,24 @@
 # C# Refactoring Exercise (Trainer Road)
 
 Requirements: 
-- Visual Studio 2017
+- Visual Studio 2017 (takes advantage of the C# 7 tuple changes which are included in the System.ValueType nuget pkg)
 
-Two main changes:
-1. Moved the receipt generation to a receipt builder (using the builder pattern)
-2. Created a rules engine for managing and processing discounts.
+## Tests 
 
-## 1. Receipt builder
+100% Code coverage
+
+## Two main changes:
+**1. Moved the receipt generation to a receipt builder (using the builder pattern)**
+**2. Created a rules engine for managing and processing discounts.**
+
+### 1. Receipt builder
 
 The receipt builder allows for creating a new receipt type two ways:
 
-### Implement the `IReceiptBuilder` interface
+#### Implement the `IReceiptBuilder` interface
 This allows complete control of the receipt that is generated.  All builder methods must be implemented.
 
-### Inherient from AbstractReceiptBuilder
+#### Inherient from `AbstractReceiptBuilder`
 This allows the new builder to use the default output for each builder method and override methods to extend or replace receipt items with a custom implementation.
 
 Example ReceiptBuilder usage:
@@ -35,7 +39,7 @@ The `GetBuilder()` method takes a ReceiptType enum to determine which builder sh
 
 Note that when a new builder is added, an additional entry in the ReceiptType enum must be added.
 
-## 2. Discount rules engine
+### 2. Discount rules engine
 
 Rules are loaded via json, with the idea being that the rules would be managed by a different system, ie some kind of admin system that would allow a distributor to modify discounts.
 The rules could be reloaded on while the system is running, such as when a user makes a change to a discount rule.
@@ -65,6 +69,7 @@ An example rule:
 
 
 
+
 Improvements that could be made:
 - Some additional defensive programmig is needed for the RulesEngine:
 -- When loading the rules, we should verify there are no conflicting rules.
@@ -79,7 +84,8 @@ Other notes:
 - if this was part of a web project, I would probably use the MVC TagBuilder in the HtmlReceiptBuilder.
 
 
----- Original readme instructions:
+
+** Original readme instructions:**
 
 Thanks for taking the time to download this refactoring exercise. 
 

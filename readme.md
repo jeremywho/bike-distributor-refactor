@@ -9,16 +9,15 @@ Allow for easy changes:
 
 1. more bikes at new prices
 
-Bikes can be loaded via json. (Currently tests load bikes via `testBikes.json` in the Test project)
-Managing the bikes would be taken care of by an admin system separate from this one.
+	- Bikes can be loaded via json. (Currently tests load bikes via `testBikes.json` in the Test project). Managing the bikes would be taken care of by an admin system separate from this one.
 
 2. different discount codes and percentages
 
-This is handled with a discount rules engine as explained below.
+	- This is handled with a discount rules engine as explained below.
 
 3. additional receipt formats.
 
-This is handled via a receipt builder as explained below.
+	- This is handled via a receipt builder as explained below.
 
 ## Note on comments
 
@@ -33,8 +32,8 @@ I've omitted xmldoc comments from this exercise as I feel they can clutter and t
 
 ## Two main changes:
 
-** 1. Moved the receipt generation to a receipt builder (using the builder pattern)**
-** 2. Created a rules engine for managing and processing discounts.**
+1. Moved the receipt generation to a receipt builder (using the builder pattern).
+2. Created a rules engine for managing and processing discounts.
 
 ### 1. Receipt builder
 

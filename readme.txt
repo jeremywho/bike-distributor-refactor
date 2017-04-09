@@ -1,3 +1,86 @@
+# C# Refactoring Exercise (Trainer Road)
+
+Requirements: 
+- Visual Studio 2017
+
+Two main changes:
+1. Moved the receipt generation to a receipt builder (using the builder pattern)
+2. Created a rules engine for managing and processing discounts.
+
+## 1. Receipt builder
+
+The receipt builder allows for creating a new receipt type two ways:
+
+### Implement the `IReceiptBuilder` interface
+This allows complete control of the receipt that is generated.  All builder methods must be implemented.
+
+### Inherient from AbstractReceiptBuilder
+This allows the new builder to use the default output for each builder method and override methods to extend or replace receipt items with a custom implementation.
+
+Example ReceiptBuilder usage:
+
+```
+return ReceiptBuilderFactory.GetBuilder(type)
+                            .ForCompany(Company)
+                            .WithHeader()
+                            .WithLineItems(_lines, showDiscountCode)
+                            .WithSubTotal()
+                            .WithTax(TaxRate)
+                            .WithTotal()
+                            .WithFooter()
+                            .Build();
+```
+
+The `GetBuilder()` method takes a ReceiptType enum to determine which builder should be used.
+
+Note that when a new builder is added, an additional entry in the ReceiptType enum must be added.
+
+## 2. Discount rules engine
+
+Rules are loaded via json, with the idea being that the rules would be managed by a different system, ie some kind of admin system that would allow a distributor to modify discounts.
+The rules could be reloaded on while the system is running, such as when a user makes a change to a discount rule.
+
+A discount rule consists of a list of rules, and amount for the discount and a coupon code to identify the discount.
+
+The discount amount is a percentage of the full price to charge (1 - discount), ie: 10% (0.10) discount would be 1 - 0.10 = *0.9*
+
+An example rule:
+```
+{
+	"PropertyName": "Quantity",
+	"Operation": "GreaterThanOrEqual",
+	"TargetValue": "20"
+},
+```
+
+`PropertyName`: the property used in the comparison. 
+- Valid properties are: `Quantity`, `Bike.Brand`, `Bike.Model`, `Bike.Year`, `Bike.Price`
+
+`Operation`: The comparison operation that will be used. 
+- Valid operations are: 'Equal', 'LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`
+
+`TargetValue`: the value to use in the comparison operation.
+
+## Additional changes
+
+
+
+Improvements that could be made:
+- Some additional defensive programmig is needed for the RulesEngine:
+-- When loading the rules, we should verify there are no conflicting rules.
+-- We should find the "best" discount for a product, currently we are just finding the first available discount.
+
+
+
+
+Other notes:
+- Changed doubles to decimals where money is being calculated.
+- Changing the Bike class to a Product class would allow for easy generalization of the project. I left it as Bike as this is for a bike distributor.
+- if this was part of a web project, I would probably use the MVC TagBuilder in the HtmlReceiptBuilder.
+
+
+---- Original readme instructions:
+
 Thanks for taking the time to download this refactoring exercise. 
 
 Here's the instructions from our CTO:

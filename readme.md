@@ -20,6 +20,13 @@ This is handled with a discount rules engine as explained below.
 
 This is handled via a receipt builder as explained below.
 
+## Note on comments
+
+I try to adhere to the "self documenting code" philosophy and write code that is readable, with class/method names that make sense.
+When I add a comment, it's because there is something confusing and I think my future self (or future anyone) could benefit from it.
+
+I've omitted xmldoc comments from this exercise as I feel they can clutter and this is just a sample project. If this was a library for others to consume, I would have added xml comments for each public class/method.
+
 ## Tests 
 
 100% Code coverage
